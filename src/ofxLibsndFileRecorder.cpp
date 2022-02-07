@@ -6,7 +6,7 @@ ofxLibsndFileRecorder::ofxLibsndFileRecorder(){
 }
 
 
-void ofxLibsndFileRecorder::setup(string fileName, int sampleRate_, int numChannels_){
+void ofxLibsndFileRecorder::setup(std::string fileName, int sampleRate_, int numChannels_){
 	
 	sampleRate=sampleRate_;
 	numChannels = numChannels_;
@@ -14,9 +14,9 @@ void ofxLibsndFileRecorder::setup(string fileName, int sampleRate_, int numChann
 	audioFormat=SF_FORMAT_WAV | SF_FORMAT_PCM_16;
 	
 	//cout << "SND PATH: "<<ofToDataPath(fileName,true)<<"\n";
-	outFile=new SndfileHandle(ofToDataPath(fileName,true),SFM_RDWR, audioFormat, numChannels, sampleRate);
+	outFile=new SndfileHandle(fileName,SFM_RDWR, audioFormat, numChannels, sampleRate);
 	if(!outFile){
-		cout<<"SndFileHandl outfile creation error\n";
+		std::cout<<"SndFileHandl outfile creation error\n";
 		initialized=false;
 	}
 	else{
