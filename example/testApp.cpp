@@ -43,7 +43,7 @@ void testApp::keyPressed  (int key){
 	static int audioCount=0;
 	if(key=='a' && !recording){
 		cout<<"Start recording\n";
-		string pt=ofToString(audioCount,0)+".wav";
+		std::string pt=ofToString(audioCount,0)+".wav";
 	
 		cout << pt<<"----\n";
 		audioRecorder.setup(pt);
@@ -63,4 +63,3 @@ void testApp::audioReceived(float * input, int bufferSize, int nChannels){
 	if(recording)
 		audioRecorder.addSamples(input,bufferSize*nChannels);
 }
-

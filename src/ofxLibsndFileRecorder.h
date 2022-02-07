@@ -6,7 +6,7 @@ class ofxLibsndFileRecorder{
 	public :
 	
 	ofxLibsndFileRecorder();
-	void setup(string fileName, int sampleRate=44100, int numChannels=1);
+	void setup(std::string fileName, int sampleRate=44100, int numChannels=1);
 	void addSamples(float* &input, int numSamples);
 	
 	
@@ -25,11 +25,11 @@ class ofxLibsndFileRecorder{
 	private:
 		SndfileHandle	*outFile;
 		bool			initialized;
-		string			fileName;
+		std::string			fileName;
 		int				sampleRate;
 		int				numChannels;		
 		int				audioFormat;
-		string			suffix;
+		std::string			suffix;
 		float			*recordingBuffer;
 		int				recordingSize;
 	
